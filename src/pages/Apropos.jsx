@@ -40,7 +40,7 @@ export default function Apropos() {
       <section className="section">
         <div className="container">
           <FadeIn>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+            <div className="mission-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
               <div>
                 <div className="tag">Notre mission</div>
                 <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--green-dark)', margin: '0.5rem 0 1rem' }}>Valoriser la médecine traditionnelle africaine</h2>
