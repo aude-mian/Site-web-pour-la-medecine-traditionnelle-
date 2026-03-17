@@ -56,12 +56,12 @@ export default function Blog() {
 
           {cat === 'Tous' && !search && (
             <FadeIn delay={100}>
-              <div className="card" style={{ marginBottom: '2rem', display: 'flex', overflow: 'hidden', flexDirection: 'row' }}>
-                <div style={{ background: 'linear-gradient(135deg,var(--green-main),var(--green-dark))', width: 280, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '5rem' }}>{FEATURED.icon}</div>
-                <div style={{ padding: '2rem', flex: 1 }}>
+              <div className="card featured-card">
+                <div className="featured-img">{FEATURED.icon}</div>
+                <div className="featured-body">
                   <span className="blog-category">{FEATURED.cat}</span>
                   <div className="blog-meta"><span>{FEATURED.date}</span><span className="dot" /><span>{FEATURED.read} min</span><span className="dot" /><span>Par {FEATURED.author}</span></div>
-                  <h2 style={{ fontSize: '1.4rem', color: 'var(--green-dark)', margin: '0.5rem 0 0.8rem' }}>{FEATURED.title}</h2>
+                  <h2 className="featured-title">{FEATURED.title}</h2>
                   <p style={{ color: 'var(--gray-mid)', lineHeight: 1.7 }}>{FEATURED.excerpt}</p>
                   <div style={{ marginTop: '1.2rem' }}>
                     <a href="#" className="btn btn-primary">Lire l'article complet</a>
