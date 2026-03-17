@@ -13,8 +13,7 @@ export default function Navbar() {
         </NavLink>
 
         <ul className={`nav-links ${open ? 'open' : ''}`}>
-          {[['/', 'Accueil'], ['/decouverte', 'Découverte'], ['/blog', 'Blog'],
-            ['/chat', 'Chat'], ['/apropos', 'À propos']].map(([path, label]) => (
+          {[['/', 'Accueil'], ['/apropos', 'À propos'], ['/blog', 'Blog']].map(([path, label]) => (
             <li key={path}>
               <NavLink to={path} className={({ isActive }) => isActive ? 'active' : ''} onClick={() => setOpen(false)}>
                 {label}
