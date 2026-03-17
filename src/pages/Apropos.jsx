@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import {
-  Handshake, FlaskConical, Globe, Leaf, Lightbulb, ShieldCheck,
-  Sparkles,
+  Handshake, FlaskConical, Globe, Leaf, Lightbulb, ShieldCheck, Sparkles,
 } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
+import PageHero from '../components/PageHero';
 
 const VALEURS = [
   { Icon: Handshake,    title: 'Authenticité',          desc: "Nous respectons et préservons l'intégrité des savoirs traditionnels, sans les dénaturer." },
@@ -26,15 +26,11 @@ const STATS = [['500+', 'Plantes répertoriées'], ['120+', 'Tradipraticiens'], 
 export default function Apropos() {
   return (
     <>
-      <div className="about-hero">
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-            <Leaf size={64} color="rgba(255,255,255,0.9)" strokeWidth={1.4} />
-          </div>
-          <h1>À propos de MedTrad</h1>
-          <p>Nous valorisons le patrimoine médicinal ancestral africain et le rendons accessible à tous grâce au numérique.</p>
-        </div>
-      </div>
+      <PageHero
+        title="À propos de MedTrad"
+        subtitle="Nous valorisons le patrimoine médicinal ancestral africain et le rendons accessible à tous grâce au numérique."
+        breadcrumb="À propos"
+      />
 
       {/* MISSION */}
       <section className="section">
@@ -76,13 +72,16 @@ export default function Apropos() {
               <p>Des principes fondamentaux qui orientent chacune de nos actions.</p>
             </div>
           </FadeIn>
-          <div className="grid-3">
-            {VALEURS.map(({ Icon, title, desc }, i) => (
-              <FadeIn key={title} delay={i * 80}>
-                <div className="value-card">
-                  <div className="value-icon"><Icon size={28} /></div>
-                  <h3>{title}</h3>
-                  <p>{desc}</p>
+          <div className="timeline-blocks">
+            {VALEURS.map(({ title, desc }, i) => (
+              <FadeIn key={title} delay={i * 130}>
+                <div className="timeline-block">
+                  <div className="timeline-num">0{i + 1}</div>
+                  <div className="timeline-dot" />
+                  <div className="timeline-content">
+                    <h3>{title}</h3>
+                    <p>{desc}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}

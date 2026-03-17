@@ -1,9 +1,17 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BookMarked, MessageCircle, Newspaper, Search, ShieldCheck, Globe,
-  Stethoscope, Sprout,
+  Stethoscope, Sprout, ChevronDown,
 } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
+
+const HERO_IMAGES = [
+  '/tradi-praticien.jpeg',
+  '/feuilles-basilic.jpeg',
+  '/main-plantes.jpeg',
+  '/plantes1.jpeg',
+];
 
 const plants = [
   { img: '/moringa.jpg',    name: 'Moringa oleifera',     desc: 'Riche en vitamines et minéraux, renforce le système immunitaire et lutte contre la malnutrition.',                tags: ['Immunité', 'Nutrition'],   origin: "Afrique de l'Ouest" },
@@ -27,10 +35,30 @@ const features = [
 ];
 
 export default function Accueil() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(i => (i + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
-      <section className="hero">
-        <div className="container">
+      <section className="hero hero-slideshow">
+        {/* Images en arrière-plan */}
+        {HERO_IMAGES.map((src, i) => (
+          <div
+            key={src}
+            className={`hero-slide ${i === current ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${src})` }}
+          />
+        ))}
+        {/* Overlay sombre pour lisibilité */}
+        <div className="hero-overlay" />
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="hero-badge"><Sprout size={16} /> Plateforme de médecine traditionnelle</div>
           <h1>Découvrez les <span className="accent">remèdes naturels</span><br />de nos ancêtres</h1>
           <p>MedTrad vous connecte aux savoirs ancestraux de la médecine traditionnelle. Explorez les plantes médicinales, lisez nos articles et discutez avec des tradipraticiens.</p>
@@ -43,6 +71,19 @@ export default function Accueil() {
               <div className="stat" key={n}><div className="number">{n}</div><div className="label">{l}</div></div>
             ))}
           </div>
+
+          {/* Indicateurs de slides */}
+          <div className="hero-dots">
+            {HERO_IMAGES.map((_, i) => (
+              <button key={i} className={`hero-dot ${i === current ? 'active' : ''}`} onClick={() => setCurrent(i)} />
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="hero-scroll">
+          <ChevronDown size={20} />
+          <span>Défiler</span>
         </div>
       </section>
 
@@ -55,13 +96,16 @@ export default function Accueil() {
               <p>Une plateforme complète pour explorer, apprendre et consulter des experts.</p>
             </div>
           </FadeIn>
-          <div className="features-grid">
-            {features.map(({ Icon, title, desc }, i) => (
-              <FadeIn key={title} delay={i * 80}>
-                <div className="feature-card">
-                  <div className="feature-icon"><Icon size={28} /></div>
-                  <h3>{title}</h3>
-                  <p>{desc}</p>
+          <div className="timeline-blocks">
+            {features.map(({ title, desc }, i) => (
+              <FadeIn key={title} delay={i * 130}>
+                <div className="timeline-block">
+                  <div className="timeline-num">0{i + 1}</div>
+                  <div className="timeline-dot" />
+                  <div className="timeline-content">
+                    <h3>{title}</h3>
+                    <p>{desc}</p>
+                  </div>
                 </div>
               </FadeIn>
             ))}

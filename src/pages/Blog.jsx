@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
+import PageHero from '../components/PageHero';
 
 const CATEGORIES = ['Tous', 'Phytothérapie', 'Bien-être', 'Tradipraticiens', 'Nutrition', 'Maladies'];
 
@@ -34,13 +34,11 @@ export default function Blog() {
 
   return (
     <>
-      <div className="page-header">
-        <div className="container">
-          <div className="breadcrumb"><Link to="/">Accueil</Link> › Blog</div>
-          <h1>Blog MedTrad</h1>
-          <p>Articles informatifs sur la santé naturelle, les remèdes ancestraux et les conseils de bien-être.</p>
-        </div>
-      </div>
+      <PageHero
+        title="Blog MedTrad"
+        subtitle="Articles informatifs sur la santé naturelle, les remèdes ancestraux et les conseils de bien-être."
+        breadcrumb="Blog"
+      />
 
       <section className="section">
         <div className="container">

@@ -28,9 +28,9 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li><a href="#">contact@medtrad.com</a></li>
-              <li><a href="#">Politique de confidentialité</a></li>
-              <li><a href="#">Conditions d'utilisation</a></li>
+              <li><Link to="/contact">Nous contacter</Link></li>
+              <li><a href="mailto:contact@medtrad.com">contact@medtrad.com</a></li>
+              <li><Link to="/confidentialite">Politique de confidentialité</Link></li>
             </ul>
           </div>
         </div>

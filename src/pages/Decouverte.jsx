@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Apple, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 
 const PLANTS = [
@@ -9,8 +9,7 @@ const PLANTS = [
   { img: '/kinkeliba.jpg', name: 'Kinkeliba',           desc: 'Détoxifiant hépatique, régule la glycémie.',                                    tags: ['Foie', 'Détox'],             origin: 'Sénégal / Mali' },
   { img: '/hibiscus.jpg',  name: 'Hibiscus sabdariffa', desc: 'Riche en antioxydants, régule la tension artérielle.',                         tags: ['Tension', 'Antioxydant'],    origin: 'Afrique tropicale' },
   { img: '/gingembre.jpg', name: 'Gingembre',           desc: "Anti-inflammatoire, améliore la digestion et réduit les nausées.",             tags: ['Digestion', 'Inflammation'], origin: 'Asie / Afrique' },
-  { Icon: Apple, bg: 'linear-gradient(135deg,#a5d6a7,#1b5e20)',
-                           name: 'Baobab',              desc: 'Super-aliment, source de vitamine C, calcium et fibres.',                       tags: ['Nutrition', 'Énergie'],      origin: 'Afrique subsaharienne' },
+  { img: '/baobab.webp',   name: 'Baobab',              desc: 'Super-aliment, source de vitamine C, calcium et fibres.',                       tags: ['Nutrition', 'Énergie'],      origin: 'Afrique subsaharienne' },
   { img: '/aloe.jpg',      name: 'Aloe vera',           desc: 'Cicatrisant, hydratant, soulage les brûlures et irritations.',                 tags: ['Peau', 'Cicatrisant'],       origin: 'Afrique du Nord' },
   { img: '/curcuma.jpg',   name: 'Curcuma',             desc: 'Puissant anti-inflammatoire naturel, protège le foie.',                        tags: ['Inflammation', 'Foie'],      origin: 'Asie du Sud' },
 ];
