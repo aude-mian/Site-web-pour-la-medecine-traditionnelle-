@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/image.png';
 
 export default function Footer() {
   return (
@@ -6,7 +7,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="logo">🌿 Med<span>Trad</span></Link>
+            <Link to="/" className="logo">
+              <img src={logo} alt="MedTrad" style={{ height: '56px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+            </Link>
             <p>La plateforme numérique dédiée à la valorisation de la médecine traditionnelle africaine.</p>
           </div>
           <div className="footer-col">

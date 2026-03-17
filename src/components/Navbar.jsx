@@ -13,7 +13,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : 'navbar-top'}`}>
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : 'navbar-top'} ${open ? 'navbar-open' : ''}`}>
       <div className="container">
         <NavLink to="/" className="logo">
           <img src={logo} alt="MedTrad" style={{ height: '64px', objectFit: 'contain' }} />
