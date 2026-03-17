@@ -35,6 +35,7 @@
   transform: translateY(28px);
   transition: opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
               transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+  height: 100%;
 }
 .fade-box.visible {
   opacity: 1;
@@ -197,7 +198,7 @@ ul { list-style: none; }
 .feature-card {
   background: var(--white); border: 1px solid var(--green-border);
   border-radius: var(--radius); padding: 1.8rem 1.5rem; text-align: center;
-  transition: all var(--transition);
+  transition: all var(--transition); height: 100%;
 }
 .feature-card:hover { box-shadow: var(--shadow); border-color: var(--green-main); }
 .feature-icon {
@@ -350,11 +351,15 @@ ul { list-style: none; }
 }
 .about-hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 0.8rem; }
 .about-hero p { font-size: 1.05rem; opacity: 0.9; max-width: 580px; margin: 0 auto; }
-.value-card { background: var(--white); border: 1px solid var(--green-border); border-radius: var(--radius); padding: 1.8rem; text-align: center; }
-.value-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+.value-card { background: var(--white); border: 1px solid var(--green-border); border-radius: var(--radius); padding: 1.8rem; text-align: center; height: 100%; }
+.value-icon {
+  width: 60px; height: 60px; background: var(--green-pale); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem; color: var(--green-dark);
+}
 .value-card h3 { font-size: 1rem; font-weight: 700; color: var(--green-dark); margin-bottom: 0.4rem; }
 .value-card p { font-size: 0.85rem; color: var(--gray-mid); }
-.team-card { background: var(--white); border: 1px solid var(--green-border); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
+.team-card { background: var(--white); border: 1px solid var(--green-border); border-radius: var(--radius); padding: 1.5rem; text-align: center; height: 100%; }
 .team-avatar {
   width: 72px; height: 72px;
   background: linear-gradient(135deg, var(--green-main), var(--green-dark));

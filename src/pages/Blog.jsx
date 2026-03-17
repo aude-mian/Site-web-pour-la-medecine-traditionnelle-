@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Coffee, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 
 const CATEGORIES = ['Tous', 'Phytothérapie', 'Bien-être', 'Tradipraticiens', 'Nutrition', 'Maladies'];

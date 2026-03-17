@@ -29,7 +29,7 @@ export default function Apropos() {
       <div className="about-hero">
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-            <Leaf size={64} color="var(--green-main)" strokeWidth={1.4} />
+            <Leaf size={64} color="rgba(255,255,255,0.9)" strokeWidth={1.4} />
           </div>
           <h1>À propos de MedTrad</h1>
           <p>Nous valorisons le patrimoine médicinal ancestral africain et le rendons accessible à tous grâce au numérique.</p>
