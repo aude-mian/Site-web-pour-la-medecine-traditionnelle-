@@ -288,6 +288,87 @@ ul { list-style: none; }
 .card-footer a:hover { color: var(--green-dark); }
 .plant-card .card-img { background: linear-gradient(135deg, #e8f5ee, #c8e6d4); }
 
+/* ===== ACCORDION (Services / Valeurs) ===== */
+.accordion-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 0.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.accordion-tag {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--green-main);
+  margin-bottom: 0.6rem;
+}
+.accordion-tag::before {
+  content: ''; display: block;
+  width: 32px; height: 2px;
+  background: var(--green-main); border-radius: 2px;
+}
+.accordion-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800; color: var(--green-dark);
+  letter-spacing: -0.5px; line-height: 1.15;
+  margin: 0;
+}
+.accordion-list {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(210,235,218,0.8);
+}
+.accordion-list .fade-box { height: auto; }
+.accordion-item {
+  border-bottom: 1px solid rgba(210,235,218,0.8);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.accordion-item:hover { background: rgba(240,250,244,0.5); }
+.accordion-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 32px;
+  align-items: center;
+  padding: 1.6rem 0.5rem;
+  gap: 1rem;
+}
+.accordion-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem; font-weight: 800;
+  color: rgba(30,107,66,0.12);
+  line-height: 1; transition: color 0.3s;
+}
+.accordion-item:hover .accordion-num { color: var(--green-main); }
+.accordion-item-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--green-dark);
+  transition: color 0.3s;
+}
+.accordion-item:hover .accordion-item-title { color: var(--green-main); }
+.accordion-arrow {
+  font-size: 1.1rem; color: var(--green-main);
+  transition: transform 0.3s;
+  justify-self: end;
+}
+.accordion-body {
+  display: grid; grid-template-columns: 1fr 260px;
+  gap: 2rem; align-items: center;
+  padding: 0 0.5rem 0;
+  max-height: 0; overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.35s ease, padding 0.3s ease;
+}
+.accordion-item:hover .accordion-body {
+  max-height: 260px; opacity: 1;
+  padding: 0 0.5rem 1.8rem;
+}
+.accordion-body p {
+  font-size: 0.97rem; color: #7a8a7e; line-height: 1.85; margin: 0;
+}
+.accordion-img {
+  width: 100%; height: 180px;
+  object-fit: cover; border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(30,107,66,0.12);
+}
+
 /* ===== TIMELINE BLOCKS (Services / Valeurs) ===== */
 .timeline-blocks {
   max-width: 680px; margin: 0;
@@ -768,4 +849,11 @@ ul { list-style: none; }
   .team-card                      { padding: 1.2rem; }
   .timeline-block                 { grid-template-columns: 40px 18px 1fr; gap: 0 0.8rem; padding: 1.6rem 0; }
   .timeline-num                   { font-size: 0.72rem; }
+  /* --- Accordion --- */
+  .accordion-row                  { grid-template-columns: 52px 1fr 24px; padding: 1.2rem 0.3rem; }
+  .accordion-num                  { font-size: 1.5rem; }
+  .accordion-item-title           { font-size: 0.97rem; }
+  .accordion-body                 { grid-template-columns: 1fr; gap: 1rem; }
+  .accordion-img                  { height: 160px; }
+  .accordion-title                { font-size: 1.6rem; }
 }

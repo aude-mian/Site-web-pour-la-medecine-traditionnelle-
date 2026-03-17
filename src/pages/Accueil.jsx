@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  BookMarked, MessageCircle, Newspaper, Search, ShieldCheck, Globe,
-  Stethoscope, Sprout, ChevronDown,
-} from 'lucide-react';
+import { Stethoscope, Sprout, ChevronDown } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 
 const HERO_IMAGES = [
@@ -26,12 +23,12 @@ const articles = [
 ];
 
 const features = [
-  { Icon: BookMarked,    title: 'Bibliothèque de plantes', desc: 'Accédez à une base de données complète de plantes médicinales avec leurs propriétés et usages.' },
-  { Icon: MessageCircle, title: 'Chat avec les experts',   desc: 'Discutez directement avec des tradipraticiens qualifiés pour des conseils personnalisés.' },
-  { Icon: Newspaper,     title: 'Blog informatif',         desc: 'Lisez des articles rédigés par des experts sur les pratiques et remèdes traditionnels.' },
-  { Icon: Search,        title: 'Recherche avancée',       desc: 'Trouvez rapidement les remèdes adaptés à vos besoins.' },
-  { Icon: ShieldCheck,   title: 'Informations fiables',    desc: 'Toutes nos informations sont vérifiées par des spécialistes reconnus.' },
-  { Icon: Globe,         title: 'Savoirs africains',       desc: 'Valorisation du patrimoine médicinal africain et des pratiques ancestrales.' },
+  { img: '/moringa.jpg',    title: 'Bibliothèque de plantes', desc: 'Accédez à une base de données complète de plantes médicinales avec leurs propriétés, usages et contre-indications.' },
+  { img: '/massage.jpeg',   title: 'Chat avec les experts',   desc: 'Discutez directement avec des tradipraticiens qualifiés pour des conseils personnalisés sur votre santé.' },
+  { img: '/gingembre.jpg',  title: 'Blog informatif',         desc: 'Lisez des articles rédigés par des experts sur les pratiques et remèdes traditionnels africains.' },
+  { img: '/kinkeliba.jpg',  title: 'Recherche avancée',       desc: 'Trouvez rapidement les remèdes adaptés à vos besoins grâce à notre moteur de recherche intelligent.' },
+  { img: '/neem.jpg',       title: 'Informations fiables',    desc: 'Toutes nos informations sont vérifiées et validées par des spécialistes reconnus de la médecine traditionnelle.' },
+  { img: '/baobab.webp',    title: 'Savoirs africains',       desc: 'Valorisation du patrimoine médicinal africain et des pratiques ancestrales transmises de génération en génération.' },
 ];
 
 export default function Accueil() {
@@ -90,21 +87,26 @@ export default function Accueil() {
       <section className="section">
         <div className="container">
           <FadeIn>
-            <div className="section-header">
-              <div className="tag">Nos services</div>
-              <h2>Tout ce dont vous avez besoin</h2>
-              <p>Une plateforme complète pour explorer, apprendre et consulter des experts.</p>
+            <div className="accordion-header">
+              <div>
+                <div className="accordion-tag">Nos services</div>
+                <h2 className="accordion-title">Tout ce dont vous avez besoin</h2>
+              </div>
+              <Link to="/decouverte" className="btn btn-outline">Explorer →</Link>
             </div>
           </FadeIn>
-          <div className="timeline-blocks">
-            {features.map(({ title, desc }, i) => (
-              <FadeIn key={title} delay={i * 130}>
-                <div className="timeline-block">
-                  <div className="timeline-num">0{i + 1}</div>
-                  <div className="timeline-dot" />
-                  <div className="timeline-content">
-                    <h3>{title}</h3>
+          <div className="accordion-list">
+            {features.map(({ img, title, desc }, i) => (
+              <FadeIn key={title} delay={i * 80}>
+                <div className="accordion-item">
+                  <div className="accordion-row">
+                    <span className="accordion-num">0{i + 1}</span>
+                    <span className="accordion-item-title">{title}</span>
+                    <span className="accordion-arrow">→</span>
+                  </div>
+                  <div className="accordion-body">
                     <p>{desc}</p>
+                    <img src={img} alt={title} className="accordion-img" />
                   </div>
                 </div>
               </FadeIn>

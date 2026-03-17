@@ -1,17 +1,15 @@
 import { Link } from 'react-router-dom';
-import {
-  Handshake, FlaskConical, Globe, Leaf, Lightbulb, ShieldCheck, Sparkles,
-} from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import PageHero from '../components/PageHero';
 
 const VALEURS = [
-  { Icon: Handshake,    title: 'Authenticité',          desc: "Nous respectons et préservons l'intégrité des savoirs traditionnels, sans les dénaturer." },
-  { Icon: FlaskConical, title: 'Rigueur scientifique',  desc: 'Nos contenus sont vérifiés et enrichis par des recherches scientifiques.' },
-  { Icon: Globe,        title: 'Accessibilité',         desc: 'Rendre ces connaissances accessibles à tous, sans barrière géographique ou sociale.' },
-  { Icon: Leaf,         title: 'Durabilité',            desc: "Promouvoir l'usage responsable des plantes dans le respect de l'environnement." },
-  { Icon: Lightbulb,    title: 'Innovation',            desc: 'Utiliser les technologies numériques pour moderniser la transmission des savoirs.' },
-  { Icon: ShieldCheck,  title: 'Sécurité',              desc: "Garantir la sécurité des utilisateurs en fournissant des informations claires sur les contre-indications." },
+  { img: '/moringa.jpg',   title: 'Authenticité',         desc: "Nous respectons et préservons l'intégrité des savoirs traditionnels, sans les dénaturer ni les réduire à de simples anecdotes." },
+  { img: '/neem.jpg',      title: 'Rigueur scientifique', desc: 'Nos contenus sont vérifiés et enrichis par des recherches scientifiques pour garantir des informations exactes et à jour.' },
+  { img: '/kinkeliba.jpg', title: 'Accessibilité',        desc: 'Rendre ces connaissances accessibles à tous, sans barrière géographique ou sociale, est au cœur de notre mission.' },
+  { img: '/baobab.webp',   title: 'Durabilité',           desc: "Promouvoir l'usage responsable des plantes dans le respect de l'environnement et des écosystèmes fragiles." },
+  { img: '/curcuma.jpg',   title: 'Innovation',           desc: 'Utiliser les technologies numériques pour moderniser la transmission des savoirs et toucher les nouvelles générations.' },
+  { img: '/aloe.jpg',      title: 'Sécurité',             desc: "Garantir la sécurité des utilisateurs en fournissant des informations claires sur les contre-indications et les dosages." },
 ];
 
 const TEAM = [
@@ -66,21 +64,25 @@ export default function Apropos() {
       <section className="section section-alt">
         <div className="container">
           <FadeIn>
-            <div className="section-header">
-              <div className="tag">Nos valeurs</div>
-              <h2>Ce qui nous guide</h2>
-              <p>Des principes fondamentaux qui orientent chacune de nos actions.</p>
+            <div className="accordion-header">
+              <div>
+                <div className="accordion-tag">Nos valeurs</div>
+                <h2 className="accordion-title">Ce qui nous guide</h2>
+              </div>
             </div>
           </FadeIn>
-          <div className="timeline-blocks">
-            {VALEURS.map(({ title, desc }, i) => (
-              <FadeIn key={title} delay={i * 130}>
-                <div className="timeline-block">
-                  <div className="timeline-num">0{i + 1}</div>
-                  <div className="timeline-dot" />
-                  <div className="timeline-content">
-                    <h3>{title}</h3>
+          <div className="accordion-list">
+            {VALEURS.map(({ img, title, desc }, i) => (
+              <FadeIn key={title} delay={i * 80}>
+                <div className="accordion-item">
+                  <div className="accordion-row">
+                    <span className="accordion-num">0{i + 1}</span>
+                    <span className="accordion-item-title">{title}</span>
+                    <span className="accordion-arrow">→</span>
+                  </div>
+                  <div className="accordion-body">
                     <p>{desc}</p>
+                    <img src={img} alt={title} className="accordion-img" />
                   </div>
                 </div>
               </FadeIn>
